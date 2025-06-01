@@ -5,6 +5,7 @@ import Tabs from "@/components/ui/Tabs";
 import SearchBar from "@/components/ui/SearchBar";
 import ProjectCard from "@/components/project/ProjectCard";
 import AddProjectModal from "@/components/project/AddProjectModal";
+import { AddProjectFormData } from "@/components/project/AddProjectModal";
 
 const sampleProjects = [
   {
@@ -66,7 +67,7 @@ export default function Home() {
     setCart((prev) => prev.filter((t) => t !== title));
   };
 
-  const handleAddProjectSubmit = (newProjectData: any) => {
+  const handleAddProjectSubmit = (newProjectData: AddProjectFormData) => {
     console.log('New project data:', newProjectData);
     setIsAddModalOpen(false);
   };
@@ -78,7 +79,6 @@ export default function Home() {
   return (
     <Layout
       cartCount={cart.length}
-      cartItems={cart}
       cartProjects={cartProjects}
       onRemoveCartItem={handleRemoveCart}
     >

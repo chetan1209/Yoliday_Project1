@@ -18,7 +18,7 @@ const addProjectFormSchema = z.object({
   image_url: z.string().url('Invalid URL format').min(1, 'Image URL is required'),
 });
 
-type AddProjectFormData = z.infer<typeof addProjectFormSchema>;
+export type AddProjectFormData = z.infer<typeof addProjectFormSchema>;
 
 const AddProjectModal: React.FC<AddProjectModalProps> = ({ isOpen, onClose, onSubmit }) => {
   const { register, handleSubmit, formState: { errors } } = useForm<AddProjectFormData>({
