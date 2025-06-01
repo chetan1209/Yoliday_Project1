@@ -6,17 +6,16 @@ import TopNavbar from './TopNavbar';
 interface LayoutProps {
   children: React.ReactNode;
   cartCount?: number;
-  cartItems?: string[];
   cartProjects?: { title: string }[];
   onRemoveCartItem?: (title: string) => void;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, cartCount, cartItems, cartProjects, onRemoveCartItem }) => {
+const Layout: React.FC<LayoutProps> = ({ children, cartCount, cartProjects, onRemoveCartItem }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
-      <TopNavbar cartCount={cartCount} cartItems={cartItems} cartProjects={cartProjects} onRemoveCartItem={onRemoveCartItem} onMenuClick={() => setSidebarOpen(true)} />
+      <TopNavbar cartCount={cartCount} cartProjects={cartProjects} onRemoveCartItem={onRemoveCartItem} onMenuClick={() => setSidebarOpen(true)} />
       <div className="flex flex-1">
         {/* Sidebar for desktop */}
         <Sidebar className="hidden md:flex" />

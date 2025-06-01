@@ -7,13 +7,12 @@ interface CartProject {
 
 interface TopNavbarProps {
   cartCount?: number;
-  cartItems?: string[];
   cartProjects?: CartProject[];
   onRemoveCartItem?: (title: string) => void;
   onMenuClick?: () => void;
 }
 
-const TopNavbar: React.FC<TopNavbarProps> = ({ cartCount = 0, cartItems = [], cartProjects = [], onRemoveCartItem, onMenuClick }) => {
+const TopNavbar: React.FC<TopNavbarProps> = ({ cartCount = 0, cartProjects = [], onRemoveCartItem, onMenuClick }) => {
   const [showCart, setShowCart] = useState(false);
 
   return (
